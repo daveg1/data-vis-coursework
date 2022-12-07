@@ -5,7 +5,13 @@ This is a dashboard built with Streamlit that visualises the usage of web framew
 ## Data Processing
 See the steps taken to process the data [here](./data-processing/processing.ipynb)
 
-## Usage
+## Setup
+1. install dependencies
 ```sh
+pip install -r requirements.txt
+```
+2. run
+```sh
+cd app
 streamlit run main.py
 ```
