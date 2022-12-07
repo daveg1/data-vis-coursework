@@ -1,0 +1,26 @@
+,framework,frameworks used,frameworks future,language
+0,Angular.js,4286,2773,JavaScript
+1,ASP.NET,7206,3848,C#
+2,ASP.NET Core,9177,8894,C#
+3,Angular,9850,8402,JavaScript
+4,jQuery,13779,5937,JavaScript
+5,Node.js,22836,20948,JavaScript
+6,Next.js,6782,10348,JavaScript
+7,React.js,20823,21910,JavaScript
+8,Svelte,2340,6741,JavaScript
+9,Vue.js,9295,12666,JavaScript
+10,Express,11603,9333,JavaScript
+11,Phoenix,1069,1862,Elixir
+12,Ruby on Rails,2785,3272,Ruby
+13,Django,6988,7200,Python
+14,Flask,6895,5437,Python
+15,Laravel,4676,3808,PHP
+16,FastAPI,2928,4571,Python
+17,Gatsby,1747,1569,JavaScript
+18,Nuxt.js,1950,3805,JavaScript
+19,Blazor,2179,3880,C#
+20,Drupal,1070,600,PHP
+21,Symfony,1754,1433,PHP
+22,Fastify,929,1452,JavaScript
+23,Deno,874,3717,JavaScript
+24,Play Framework,364,371,Scala
