@@ -99,21 +99,41 @@ with st.container() as header:
 	# Story 5
 	# ==========
 	with st.container():
-		st.header('Stack Overflow Post Answers')
-		tab1, tab2 = st.tabs(['Unanswered Posts', 'Unsolved Posts'])
+		st.header('Stack Overflow Question Responses')
+		st.markdown('Note: a post receiving a response does not necessarily mean it was solved.')
+		tab1, tab2 = st.tabs(['Unanswered Posts', 'Answered Posts'])
 
 		with tab1:
-			# st.bar_chart(tags, x='unanswered posts', y='total posts', color)
-			fig = px.bar(tags, x='framework', y='total posts', color='unanswered posts', color_discrete_sequence=['green', '#F47521'])
-			st.plotly_chart(fig)
-			# st.altair_chart(StackOverflowQnA.create_bar(tags, 'unanswered posts'))
+			st.subheader('Unanswered Posts')
+			st.markdown('The number of posts that went unanswered')
+			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unanswered posts'))
 
 		with tab2:
-			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unsolved posts'))
-
+			st.subheader('Answered Posts')
+			st.markdown('The number of posts that received an answer')
+			st.altair_chart(StackOverflowQnA.create_bar(tags, 'answered posts'))
 
 	# ==========
 	# Story 6
+	# ==========
+	with st.container():
+		st.header('Stack Overflow Questions Solutions')
+		st.markdown('The number of questions that were marked as solved')
+		tab1, tab2 = st.tabs(['Unsolved Posts', 'Solved Posts'])
+
+		with tab1:
+			st.subheader('Unsolved Posts')
+			st.markdown('The number of posts that went unsolved')
+			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unsolved posts'))
+
+		with tab2:
+			st.subheader('Solved Posts')
+			st.markdown('The number of posts that were marked as solved by the author')
+			st.altair_chart(StackOverflowQnA.create_bar(tags, 'solved posts'))
+
+
+	# ==========
+	# Story 7
 	# ==========
 	with st.container():
 		st.subheader('Framework Usage Around the Globe')
