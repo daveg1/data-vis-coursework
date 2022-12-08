@@ -71,9 +71,11 @@ with st.container() as header:
 
 			with col1:
 				st.subheader('Frameworks Used in 2022')
+				st.markdown('These were the frameworks respondents reported using in 2022')
 				st.altair_chart(FrameworkUsage.graph_data(top_used))
 			with col2:
 				st.subheader('Desired Frameworks for 2023')
+				st.markdown('These were the frameworks respondents wanted to use in 2023')
 				st.altair_chart(FrameworkUsage.graph_data(top_want))
 
 		with tab2:
@@ -85,6 +87,7 @@ with st.container() as header:
 	# ==========
 	with st.container():
 		st.header('Languages Used by Frameworks')
+		st.markdown('These are the languages the web frameworks are written in')
 		st.altair_chart(LanguageUsage.create_pie(langs_used))
 
 	# ==========
@@ -106,6 +109,7 @@ with st.container() as header:
 	# ==========
 	with st.container():
 		st.subheader('Framework Usage Around the Globe')
+		st.markdown('Hover over each country to see its most use framework')
 
 		world_have_used = countries[countries['type'] == 'have used']
 
