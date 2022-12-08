@@ -11,8 +11,12 @@ class LanguageUsage:
 
 	@staticmethod
 	def create_pie(data) -> Figure:
-		return pie(data,
+		fig = pie(data,
 			values='occurrence',
 			names='language',
 			color_discrete_sequence=data['theme'],
 			height=600)
+
+		fig.update_traces(textposition='inside', textinfo='percent+label')
+
+		return fig
