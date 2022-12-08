@@ -9,10 +9,10 @@ class GeoPlot:
 			locations = data['country'],
 			locationmode = 'country names',
 			z = data['users'],
-			text = data['country'],
+			text = data['framework'],
 			reversescale=True,
 			marker_line_color='darkgray',
-			marker_line_width=0.5,
+			marker_line_width=0.5
 		)
 
 		return Figure(data=choro, layout={ 'height': 700 })
