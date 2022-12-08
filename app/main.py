@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 import os
 from stories.framework_usage import FrameworkUsage
 from stories.info_bubbles import InfoBubbles
@@ -58,13 +59,14 @@ with st.container() as header:
 
 		st.markdown(bubbles, unsafe_allow_html=True)
 
-	# ==========
-	# Story 2
-	# ==========
 	with st.container():
 		st.header('Top Frameworks by Current Usage')
 
 		tab1, tab2 = st.tabs(['Split Graphs', 'Side-by-Side'])
+
+		# ==========
+		# Story 2
+		# ==========
 
 		with tab1:
 			col1, col2 = st.columns(2)
@@ -78,34 +80,40 @@ with st.container() as header:
 				st.markdown('These were the frameworks respondents wanted to use in 2023')
 				st.altair_chart(FrameworkUsage.graph_data(top_want))
 
+		# ==========
+		# Story 3
+		# ==========
 		with tab2:
 			st.subheader('Frameworks Used in 2022 vs Frameworks Desired for 2023')
 			st.altair_chart(FrameworkUsage.graph_pyramid([top_used, top_want]), use_container_width=True)
 
 	# ==========
-	# Story 3
+	# Story 4
 	# ==========
 	with st.container():
 		st.header('Languages Used by Frameworks')
 		st.markdown('These are the languages the web frameworks are written in')
-		st.altair_chart(LanguageUsage.create_pie(langs_used))
+		st.plotly_chart(LanguageUsage.create_pie(langs_used), theme='streamlit')
 
 	# ==========
-	# Story 4
+	# Story 5
 	# ==========
 	with st.container():
-		st.header('Stack Overflow Questions')
+		st.header('Stack Overflow Post Answers')
 		tab1, tab2 = st.tabs(['Unanswered Posts', 'Unsolved Posts'])
 
 		with tab1:
-			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unanswered posts'))
+			# st.bar_chart(tags, x='unanswered posts', y='total posts', color)
+			fig = px.bar(tags, x='framework', y='total posts', color='unanswered posts', color_discrete_sequence=['green', '#F47521'])
+			st.plotly_chart(fig)
+			# st.altair_chart(StackOverflowQnA.create_bar(tags, 'unanswered posts'))
 
 		with tab2:
 			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unsolved posts'))
 
 
 	# ==========
-	# Story 5
+	# Story 6
 	# ==========
 	with st.container():
 		st.subheader('Framework Usage Around the Globe')

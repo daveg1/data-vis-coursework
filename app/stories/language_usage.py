@@ -1,5 +1,6 @@
 from pandas import DataFrame
-from altair import *
+from plotly.graph_objects import Figure
+from plotly.express import *
 
 class LanguageUsage:
 
@@ -9,8 +10,9 @@ class LanguageUsage:
 		return subset.value_counts().reset_index(name='occurrence')
 
 	@staticmethod
-	def create_pie(data) -> Chart:
-		return Chart(data).mark_arc().encode(
-			theta=Theta(field='occurrence', type='quantitative'),
-			color=Color(field='language', type='nominal', title='Languages'),
-		)
+	def create_pie(data) -> Figure:
+		return pie(data,
+			values='occurrence',
+			names='language',
+			color_discrete_sequence=data['theme'],
+			height=600)
