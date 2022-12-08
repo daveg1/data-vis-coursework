@@ -33,7 +33,7 @@ class FrameworkUsage:
 		).encode(
 			y=Y('framework:O', axis=None),
 			x=X('occurrence:Q', sort=SortOrder('descending')),
-		).mark_bar().properties(title='Have Used')
+		).mark_bar()
 
 		middle = base.encode(
 			y=Y('framework:O', axis=None),
@@ -45,6 +45,6 @@ class FrameworkUsage:
 		).encode(
 				y=Y('framework', axis=None),
 				x=X('occurrence',sort=SortOrder('ascending')),
-		).mark_bar().properties(title='Want to Use')
+		).mark_bar()
 
 		return concat(left, middle, right, spacing=10)

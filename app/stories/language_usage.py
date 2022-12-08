@@ -11,6 +11,6 @@ class LanguageUsage:
 	@staticmethod
 	def create_pie(data) -> Chart:
 		return Chart(data).mark_arc().encode(
-			theta=Theta(field='language', type='quantitative'),
-			color=Color(field='theme', type='nominal'),
+			theta=Theta(field='occurrence', type='quantitative'),
+			color=Color(field='language', type='nominal', title='Languages'),
 		)
