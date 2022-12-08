@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 from stories.framework_usage import FrameworkUsage
 from stories.info_bubbles import InfoBubbles
 from stories.language_usage import LanguageUsage
@@ -10,8 +11,9 @@ title = 'Frameworks of the Web'
 st.set_page_config(page_title=title, layout="wide")
 
 # Datasets
-frameworks = pd.read_csv('./data/frameworks.csv', index_col=0)
-langs_used = LanguageUsage.format_data(pd.read_csv('./data/languages.csv'))
+frameworks = pd.read_csv(os.path.abspath('./data/frameworks.csv'), index_col=0)
+langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('./data/languages.csv')))
+countries = pd.read_csv(os.path.abspath('./data/countries.csv'))
 top_used, top_want = FrameworkUsage.format_data(frameworks)
 
 # Apply custom styles
@@ -99,4 +101,4 @@ with st.container() as header:
 
 		df = pd.DataFrame([['United Kingdom of Great Britain and Northern I', 123]], columns=['country', 'value'])
 
-		st.plotly_chart(GeoPlot.create_map(df), use_container_width=True)
+		st.plotly_chart(GeoPlot.create_map(countries), use_container_width=True)
