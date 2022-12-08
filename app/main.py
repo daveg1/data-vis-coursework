@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 from stories.framework_usage import FrameworkUsage
 from stories.info_bubbles import InfoBubbles
 from stories.language_usage import LanguageUsage
