@@ -18,7 +18,7 @@ countries = pd.read_csv(os.path.abspath('app/data/countries.csv'))
 top_used, top_want = FrameworkUsage.format_data(frameworks)
 
 # Apply custom styles
-with open('./style.css') as css:
+with open(os.path.abspath('app/style.css')) as css:
 	st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
 # Create main container
