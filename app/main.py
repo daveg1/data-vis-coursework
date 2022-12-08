@@ -11,9 +11,10 @@ title = 'Frameworks of the Web'
 st.set_page_config(page_title=title, layout="wide")
 
 # Datasets
-frameworks = pd.read_csv(os.path.abspath('./data/frameworks.csv'), index_col=0)
-langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('./data/languages.csv')))
-countries = pd.read_csv(os.path.abspath('./data/countries.csv'))
+frameworks = pd.read_csv(os.path.abspath('app/data/frameworks.csv'), index_col=0)
+langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('app/data/languages.csv')))
+tags = pd.read_csv(os.path.abspath('app/data/tags.csv'))
+countries = pd.read_csv(os.path.abspath('app/data/countries.csv'))
 top_used, top_want = FrameworkUsage.format_data(frameworks)
 
 # Apply custom styles
@@ -87,10 +88,10 @@ with st.container() as header:
 		tab1, tab2 = st.tabs(['Unanswered Posts', 'Unsolved Posts'])
 
 		with tab1:
-			st.altair_chart(StackOverflowQnA.create_bar(frameworks, 'unanswered posts'))
+			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unanswered posts'))
 
 		with tab2:
-			st.altair_chart(StackOverflowQnA.create_bar(frameworks, 'unsolved posts'))
+			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unsolved posts'))
 
 
 	# ==========
