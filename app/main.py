@@ -11,14 +11,14 @@ title = 'Frameworks of the Web'
 st.set_page_config(page_title=title, layout="wide")
 
 # Datasets
-frameworks = pd.read_csv(os.path.abspath('./data/frameworks.csv'), index_col=0)
-langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('./data/languages.csv')))
-tags = pd.read_csv(os.path.abspath('./data/tags.csv'))
-countries = pd.read_csv(os.path.abspath('./data/countries.csv'), index_col=0)
+frameworks = pd.read_csv(os.path.abspath('app/data/frameworks.csv'), index_col=0)
+langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('app/data/languages.csv')))
+tags = pd.read_csv(os.path.abspath('app/data/tags.csv'))
+countries = pd.read_csv(os.path.abspath('app/data/countries.csv'), index_col=0)
 top_used, top_want = FrameworkUsage.format_data(frameworks)
 
 # Apply custom styles
-with open(os.path.abspath('./style.css')) as css:
+with open(os.path.abspath('app/style.css')) as css:
 	st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
 # Create main container
