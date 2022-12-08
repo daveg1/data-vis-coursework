@@ -1,0 +1,26 @@
+﻿framework,language,theme
+Node.js,JavaScript,#F7DF1E
+React.js,JavaScript,#F7DF1E
+jQuery,JavaScript,#F7DF1E
+Express,JavaScript,#F7DF1E
+Angular,JavaScript,#F7DF1E
+Vue.js,JavaScript,#F7DF1E
+ASP.NET Core,C#,#239120
+ASP.NET,C#,#239120
+Django,Python,#3776AB
+Flask,Python,#3776AB
+Next.js,JavaScript,#F7DF1E
+Laravel,PHP,#777BB4
+Angular.js,JavaScript,#F7DF1E
+FastAPI,Python,#3776AB
+Ruby on Rails,Ruby,#CC342D
+Svelte,JavaScript,#F7DF1E
+Blazor,C#,#239120
+Nuxt.js,JavaScript,#F7DF1E
+Symfony,PHP,#777BB4
+Gatsby,JavaScript,#F7DF1E
+Drupal,PHP,#777BB4
+Phoenix,Elixir,#4B275F
+Fastify,JavaScript,#F7DF1E
+Deno,JavaScript,#F7DF1E
+Play Framework,Scala,#DC322F

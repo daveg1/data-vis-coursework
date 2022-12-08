@@ -31,20 +31,20 @@ class FrameworkUsage:
 		left = base.transform_filter(
 			datum.type == 'have used'
 		).encode(
-			y=Y('framework:O', axis=None),
-			x=X('occurrence:Q', sort=SortOrder('descending')),
+			y=Y('framework:O', sort='-x', axis=None),
+			x=X('occurrence:Q',sort=SortOrder('descending')),
 		).mark_bar()
 
 		middle = base.encode(
-			y=Y('framework:O', axis=None),
+			y=Y('framework:O', axis=None, sort=None),
 			text=Text('framework')
-		).mark_text().properties(width=100)
+		).mark_text(color='white', opacity=0.75).properties(width=100)
 
 		right = base.transform_filter(
 			datum.type == 'want to use'
 		).encode(
-				y=Y('framework', axis=None),
-				x=X('occurrence',sort=SortOrder('ascending')),
+			y=Y('framework:O', sort='-x', axis=None),
+				x=X('occurrence:Q',sort=SortOrder('ascending')),
 		).mark_bar()
 
 		return concat(left, middle, right, spacing=10)

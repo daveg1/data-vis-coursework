@@ -12,8 +12,8 @@ st.set_page_config(page_title=title, layout="wide")
 
 # Datasets
 frameworks = pd.read_csv('./data/frameworks.csv', index_col=0)
+langs_used = LanguageUsage.format_data(pd.read_csv('./data/languages.csv'))
 top_used, top_want = FrameworkUsage.format_data(frameworks)
-langs_used = LanguageUsage.format_data(frameworks)
 
 # Apply custom styles
 with open('./style.css') as css:
@@ -22,6 +22,8 @@ with open('./style.css') as css:
 # Create main container
 with st.container() as header:
 	st.title(title)
+
+	bar_col, pie_col = st.columns(2)
 
 	# ==========
 	# Story 1
@@ -80,9 +82,7 @@ with st.container() as header:
 	# Story 4
 	# ==========
 	with st.container():
-
 		st.header('Stack Overflow Questions')
-
 		tab1, tab2 = st.tabs(['Unanswered Posts', 'Unsolved Posts'])
 
 		with tab1:
