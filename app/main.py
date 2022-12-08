@@ -106,12 +106,18 @@ with st.container() as header:
 		with tab1:
 			st.subheader('Unanswered Posts')
 			st.markdown('The number of posts that went unanswered')
-			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unanswered posts'))
+			st.markdown('### Less than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_lt(tags, 'unanswered posts'))
+			st.markdown('### greater than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_gt(tags, 'unanswered posts'))
 
 		with tab2:
 			st.subheader('Answered Posts')
 			st.markdown('The number of posts that received an answer')
-			st.altair_chart(StackOverflowQnA.create_bar(tags, 'answered posts'))
+			st.markdown('### Less than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_lt(tags, 'answered posts'))
+			st.markdown('### Greater than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_gt(tags, 'answered posts'))
 
 	# ==========
 	# Story 6
@@ -124,12 +130,17 @@ with st.container() as header:
 		with tab1:
 			st.subheader('Unsolved Posts')
 			st.markdown('The number of posts that went unsolved')
-			st.altair_chart(StackOverflowQnA.create_bar(tags, 'unsolved posts'))
+			st.markdown('### Less than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_lt(tags, 'unsolved posts'))
+			st.markdown('### Greater than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_gt(tags, 'unsolved posts'))
 
 		with tab2:
 			st.subheader('Solved Posts')
 			st.markdown('The number of posts that were marked as solved by the author')
-			st.altair_chart(StackOverflowQnA.create_bar(tags, 'solved posts'))
+			st.markdown('### Less than 200,000 Posts')
+			st.altair_chart(StackOverflowQnA.create_bar_lt(tags, 'solved posts'))
+			st.altair_chart(StackOverflowQnA.create_bar_gt(tags, 'solved posts'))
 
 
 	# ==========

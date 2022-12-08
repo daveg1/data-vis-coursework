@@ -4,8 +4,10 @@ from altair import *
 class StackOverflowQnA:
 
 	@staticmethod
-	def create_bar(data: DataFrame, stacked: str) -> Chart:
-		return Chart(data).mark_bar().encode(
+	def create_bar_gt(data: DataFrame, stacked: str) -> Chart:
+		subset = data[['framework', 'total posts', stacked]]
+		subset = subset[subset['total posts'] >= 200_000]
+		return Chart(subset).mark_bar().encode(
 			x='framework',
 			y='total posts',
 			color=stacked
