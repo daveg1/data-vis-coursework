@@ -11,14 +11,14 @@ title = 'Frameworks of the Web'
 st.set_page_config(page_title=title, layout="wide")
 
 # Datasets
-frameworks = pd.read_csv(os.path.abspath('app/data/frameworks.csv'), index_col=0)
-langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('app/data/languages.csv')))
-tags = pd.read_csv(os.path.abspath('app/data/tags.csv'))
-countries = pd.read_csv(os.path.abspath('app/data/countries.csv'))
+frameworks = pd.read_csv(os.path.abspath('./data/frameworks.csv'), index_col=0)
+langs_used = LanguageUsage.format_data(pd.read_csv(os.path.abspath('./data/languages.csv')))
+tags = pd.read_csv(os.path.abspath('./data/tags.csv'))
+countries = pd.read_csv(os.path.abspath('./data/countries.csv'), index_col=0)
 top_used, top_want = FrameworkUsage.format_data(frameworks)
 
 # Apply custom styles
-with open(os.path.abspath('app/style.css')) as css:
+with open(os.path.abspath('./style.css')) as css:
 	st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
 # Create main container
@@ -100,6 +100,7 @@ with st.container() as header:
 	with st.container():
 		st.subheader('Framework Usage Around the Globe')
 
-		df = pd.DataFrame([['United Kingdom of Great Britain and Northern I', 123]], columns=['country', 'value'])
+		world_have_used = countries[countries['type'] == 'have used']
 
-		st.plotly_chart(GeoPlot.create_map(countries), use_container_width=True)
+		st.plotly_chart(GeoPlot.create_map(world_have_used), use_container_width=True)
+		# st.plotly_chart(GeoPlot.create_map(world_want_to_use), use_container_width=True)

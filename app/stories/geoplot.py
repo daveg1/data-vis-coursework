@@ -8,7 +8,7 @@ class GeoPlot:
 		choro = Choropleth(
 			locations = data['country'],
 			locationmode = 'country names',
-			z = data['value'],
+			z = data['users'],
 			text = data['country'],
 			reversescale=True,
 			marker_line_color='darkgray',
